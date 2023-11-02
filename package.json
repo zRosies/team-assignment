@@ -1,0 +1,35 @@
+{
+  "name": "l5_pa",
+  "version": "1.0.0",
+  "description": "personal assignment",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "start": "nodemon server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git"
+  },
+  "keywords": [
+    "n/a"
+  ],
+  "author": "gustavo",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express-validator": "^7.0.1",
+    "mongodb": "^6.1.0",
+    "node": "^20.7.0",
+    "swagger-ui-express": "^5.0.0",
+    "ts-node": "^10.9.1",
+    "validatorjs": "^3.22.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
