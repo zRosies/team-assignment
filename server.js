@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongodb = require('./src/connection/db')
-const routes = require('./src/routes/index')
+//const routes = require('./src/routes/index')
 const PORT = process.env.PORT;
 const app = express();
 
