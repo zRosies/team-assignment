@@ -13,7 +13,7 @@ app.use(bodyParser.json())
         res.setHeader('Access-Control-Allow-Origin', '*');
         next();
       })
-    // .use('/'. routes)
+    .use('/'. routes)
 
 
 mongodb.initDb((err) => {
