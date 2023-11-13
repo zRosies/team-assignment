@@ -17,6 +17,7 @@ app.use(bodyParser.json())
     .use('/', routes)
 
 
+
 mongodb.initDb((err, mongodb) => {
       if (err) {
         console.log(err);
