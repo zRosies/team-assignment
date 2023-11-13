@@ -35,11 +35,11 @@ const getStoreById = async (req,res,next)=>{
    
 
 if(getStoreArray.length == 0){
-        throw createError(404, `Store with id${storeId} not found`)
+        return res.send(`Store with id${storeId} not found`)
     }
 
 
-res.send (getStoreArray);
+    return res.send (getStoreArray);
 }
 catch(error){
    
@@ -57,9 +57,9 @@ const putStore = async (req,res,next)=>{
    
 
 if(getStoreArray.length == 0){
-        throw createError(404, `Store with id${planetId} not found`)
+    return res.send (`Store with id${planetId} not found`)
     }
-res.send(`Store with id ${storeId} has been updated`);
+    return res.send(`Store with id ${storeId} has been updated`);
 }
 catch(error){
    
@@ -80,10 +80,10 @@ const postStore = async (req,res,next)=>{
     .insertOne(newStore);
     if(!getStoreArray.acknowledged){
 
-        throw createError(404, `Something went wrong`)
+        return res.send(`Something went wrong`)
         }
     
-    res.send("New Store has been added");
+        return res.send("New Store has been added");
 }
     catch(error){
 
@@ -102,11 +102,11 @@ const deleteStore = async (req,res,next) => {
         .deleteOne({ _id: storeId});
     if(getStoreArray.deletedCount == 0){
 
-        throw createError(404, `Store with id ${storeId} not found`);
+        return res.send(`Store with id ${storeId} not found`);
 
        }
 
-    res.send(`Store with id ${storeId} has been deleted`);}
+        return res.send(`Store with id ${storeId} has been deleted`);}
 
     catch(error){
         next(error);
