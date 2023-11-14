@@ -1,6 +1,6 @@
 const route = require("express").Router();
 const employees = require("../controllers/employee");
-const validator = require("../validation/validator");
+const validator = require("../validation/validator.js");
 
 route.get("/", employees.getAllEmployees);
 route.get("/:id", employees.getEmployeeById);
