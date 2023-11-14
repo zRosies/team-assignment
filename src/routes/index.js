@@ -5,9 +5,11 @@ const router = require("express").Router();
 const storesRoute = require("./stores");
 const employee = require("./employees");
 const vehicle = require("./vehicle");
+const vehicleMaintenance = require("./vehicleMaintenance");
 
 router.use("/stores", storesRoute);
 router.use("/employee", employee);
 router.use("/vehicle", vehicle);
+router.use("/maintenance", vehicleMaintenance);
 
 module.exports = router;
