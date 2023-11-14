@@ -5,7 +5,7 @@ const ObjectId = require('mongodb').ObjectId;
 
 const getVehicle = async(req, res) => {
     try {
-        const Db = await mongodb.getDb().db('portfolio-builder').collection("vehicle").find().toArray();
+        const Db = await mongodb.getDb().db('carRental').collection("vehicles").find().toArray();
         res.status(200).json(Db);
     } catch (error) {
         console.error(error);
@@ -18,8 +18,8 @@ const getVehicleById = async(req, res) => {
         const vehicleId = new ObjectId(req.params.id);
         const result = await mongodb
             .getDb()
-            .db('portfolio-builder')
-            .collection("vehicle")
+            .db('carRental')
+            .collection("vehicles")
             .find({ _id: vehicleId })
             .toArray();
         if (result.length === 0) {
@@ -46,8 +46,8 @@ const createVehicle = async(req, res) => {
         };
         const result = await mongodb
             .getDb()
-            .db('portfolio-builder')
-            .collection("vehicle")
+            .db('carRental')
+            .collection("vehicles")
             .insertOne(createVehicle);
         res.status(201).json(result);
     } catch (error) {
@@ -70,8 +70,8 @@ const updateVehicleById = async(req, res) => {
         };
         const result = await mongodb
             .getDb()
-            .db('portfolio-builder')
-            .collection("vehicle")
+            .db('carRental')
+            .collection("vehicles")
             .replaceOne({ _id: vehicleId }, updateVehicle);
         if (result.modifiedCount > 0) {
             res.status(204).send();
@@ -89,8 +89,8 @@ const deleteVehicleById = async(req, res) => {
         const vehicleId = new ObjectId(req.params.id);
         const result = await mongodb
             .getDb()
-            .db('portfolio-builder')
-            .collection("vehicle")
+            .db('carRental')
+            .collection("vehicles")
             .deleteOne({ _id: vehicleId }, true);
         if (result.deletedCount > 0) {
             res.status(200).send("Vehicle was deleted from the database.");
