@@ -1,4 +1,4 @@
-const mongodb = require("../../src/connection/db");
+const mongodb = require("../connection/db");
 const ObjectId = require("mongodb").ObjectId;
 
 // GET all maintenances from vahicleMaintenances collection
