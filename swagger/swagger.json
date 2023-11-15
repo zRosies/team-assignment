@@ -1,621 +1,634 @@
 {
-  "swagger": "2.0",
-  "info": {
-    "title": "Renatal Cars",
-    "description": "his API is designed to manage and organize data within five key collections: Customers, Vehicles, Vehicle Maintenance,Employees and Stores ",
-    "version": "1.0.0"
-  },
-  "schemes": ["http"],
-  "paths": {
-    "/stores/": {
-      "get": {
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "post": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "manager_name": {
-                  "example": "any"
-                },
-                "phone_number": {
-                  "example": "any"
-                },
-                "email": {
-                  "example": "any"
-                },
-                "address": {
-                  "example": "any"
-                },
-                "office_hours": {
-                  "example": "any"
-                },
-                "map": {
-                  "example": "any"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "422": {
-            "description": "Unprocessable Entity"
-          }
-        }
-      }
+    "swagger": "2.0",
+    "info": {
+        "title": "Renatal Cars",
+        "description": "his API is designed to manage and organize data within five key collections: Customers, Vehicles, Vehicle Maintenance,Employees and Stores ",
+        "version": "1.0.0"
     },
-    "/stores/{id}": {
-      "get": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
+    "schemes": ["http"],
+    "tag": [{
+            "name": "Stores",
+            "descrition": "Operation about Stores."
+        },
+        {
+            "name": "Employee",
+            "description": "Operation about Employee."
+        },
+        {
+            "name": "Vehicle",
+            "description": "Operation about Vehicle."
+        },
+        {
+            "name": "Vehicle Maintenance",
+            "description": "Operation about Vehicle Maintenance."
+        },
+        {
+            "name": "Default"
         }
-      },
-      "put": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "manager_name": {
-                  "example": "any"
-                },
-                "phone_number": {
-                  "example": "any"
-                },
-                "email": {
-                  "example": "any"
-                },
-                "address": {
-                  "example": "any"
-                },
-                "office_hours": {
-                  "example": "any"
-                },
-                "map": {
-                  "example": "any"
+    ],
+    "paths": {
+        "/stores/": {
+            "get": {
+                "tag": ["Stores"],
+                "description": "Get all the Stores",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
                 }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "422": {
-            "description": "Unprocessable Entity"
-          }
-        }
-      },
-      "delete": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/employee/": {
-      "get": {
-        "description": "",
-        "produces": ["application/json"],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
-      "post": {
-        "description": "",
-        "produces": ["application/json"],
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "firstName": {
-                  "example": "any"
-                },
-                "lastName": {
-                  "example": "any"
-                },
-                "admission_date": {
-                  "example": "any"
-                },
-                "phone": {
-                  "example": "any"
-                },
-                "email": {
-                  "example": "any"
-                },
-                "address": {
-                  "example": "any"
+            },
+            "post": {
+                "tag": ["Stores"],
+                "description": "Create a New Store",
+                "parameters": [{
+                    "name": "body",
+                    "in": "body",
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "manager_name": {
+                                "example": "any"
+                            },
+                            "phone_number": {
+                                "example": "any"
+                            },
+                            "email": {
+                                "example": "any"
+                            },
+                            "address": {
+                                "example": "any"
+                            },
+                            "office_hours": {
+                                "example": "any"
+                            },
+                            "map": {
+                                "example": "any"
+                            }
+                        }
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
                 }
-              }
             }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Created"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "422": {
-            "description": "Unprocessable Entity"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/employee/{id}": {
-      "get": {
-        "description": "",
-        "produces": ["application/json"],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
-      "delete": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
-      "put": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "firstName": {
-                  "example": "any"
-                },
-                "lastName": {
-                  "example": "any"
-                },
-                "admission_date": {
-                  "example": "any"
-                },
-                "phone": {
-                  "example": "any"
-                },
-                "email": {
-                  "example": "any"
-                },
-                "address": {
-                  "example": "any"
+        },
+        "/stores/{id}": {
+            "get": {
+                "tag": ["Stores"],
+                "description": "Get a Store by Id",
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "type": "string"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
                 }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "422": {
-            "description": "Unprocessable Entity"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/vehicle/": {
-      "get": {
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
-      "post": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "brand": {
-                  "example": "any"
-                },
-                "model": {
-                  "example": "any"
-                },
-                "horse_power": {
-                  "example": "any"
-                },
-                "fuel_type": {
-                  "example": "any"
-                },
-                "category": {
-                  "example": "any"
-                },
-                "transmission": {
-                  "example": "any"
-                },
-                "number_passenger": {
-                  "example": "any"
+            },
+            "put": {
+                "tag": ["Stores"],
+                "description": "Update a Store by Id",
+                "parameters": [{
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "manager_name": {
+                                    "example": "any"
+                                },
+                                "phone_number": {
+                                    "example": "any"
+                                },
+                                "email": {
+                                    "example": "any"
+                                },
+                                "address": {
+                                    "example": "any"
+                                },
+                                "office_hours": {
+                                    "example": "any"
+                                },
+                                "map": {
+                                    "example": "any"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
                 }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Created"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/vehicle/{id}": {
-      "get": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "422": {
-            "description": "Unprocessable Entity"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
-      "put": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "brand": {
-                  "example": "any"
-                },
-                "model": {
-                  "example": "any"
-                },
-                "horse_power": {
-                  "example": "any"
-                },
-                "fuel_type": {
-                  "example": "any"
-                },
-                "category": {
-                  "example": "any"
-                },
-                "transmission": {
-                  "example": "any"
-                },
-                "number_passenger": {
-                  "example": "any"
+            },
+            "delete": {
+                "tag": ["Stores"],
+                "description": "Delete a Store by Id",
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "type": "string"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
                 }
-              }
             }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "422": {
-            "description": "Unprocessable Entity"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
-      "delete": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "422": {
-            "description": "Unprocessable Entity"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/maintenance/": {
-      "get": {
-        "description": "",
-        "produces": ["application/json"],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        }
-      },
-      "post": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "vehicle": {
-                  "example": "any"
-                },
-                "date": {
-                  "example": "any"
-                },
-                "mileage": {
-                  "example": "any"
-                },
-                "lubrication": {
-                  "example": "any"
-                },
-                "brakes": {
-                  "example": "any"
-                },
-                "tires": {
-                  "example": "any"
-                },
-                "suspension_system": {
-                  "example": "any"
-                },
-                "disponibility": {
-                  "example": "any"
+        },
+        "/employee/": {
+            "get": {
+                "tag": ["Employee"],
+                "description": "Get all Employees",
+                "produces": ["application/json"],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
                 }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Created"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/maintenance/{id}": {
-      "get": {
-        "description": "",
-        "produces": ["application/json"],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        }
-      },
-      "put": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "vehicle": {
-                  "example": "any"
-                },
-                "date": {
-                  "example": "any"
-                },
-                "mileage": {
-                  "example": "any"
-                },
-                "lubrication": {
-                  "example": "any"
-                },
-                "brakes": {
-                  "example": "any"
-                },
-                "tires": {
-                  "example": "any"
-                },
-                "suspension_system": {
-                  "example": "any"
-                },
-                "disponibility": {
-                  "example": "any"
+            },
+            "post": {
+                "tag": ["Employee"],
+                "description": "Create a New Employee",
+                "produces": ["application/json"],
+                "parameters": [{
+                    "name": "body",
+                    "in": "body",
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "firstName": {
+                                "example": "any"
+                            },
+                            "lastName": {
+                                "example": "any"
+                            },
+                            "admission_date": {
+                                "example": "any"
+                            },
+                            "phone": {
+                                "example": "any"
+                            },
+                            "email": {
+                                "example": "any"
+                            },
+                            "address": {
+                                "example": "any"
+                            }
+                        }
+                    }
+                }],
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
                 }
-              }
             }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
+        },
+        "/employee/{id}": {
+            "get": {
+                "tag": ["Employee"],
+                "description": "Get an Employee by Id",
+                "produces": ["application/json"],
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "type": "string"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "put": {
+                "tag": ["Employee"],
+                "description": "Update an Employee by Id",
+                "parameters": [{
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "firstName": {
+                                    "example": "any"
+                                },
+                                "lastName": {
+                                    "example": "any"
+                                },
+                                "admission_date": {
+                                    "example": "any"
+                                },
+                                "phone": {
+                                    "example": "any"
+                                },
+                                "email": {
+                                    "example": "any"
+                                },
+                                "address": {
+                                    "example": "any"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "delete": {
+                "tag": ["Employee"],
+                "description": "Delete an Employee by Id",
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "type": "string"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/vehicle/": {
+            "get": {
+                "tag": ["Vehicle"],
+                "description": "Get all Vehicles",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "post": {
+                "tag": ["Vehicle"],
+                "description": "Create a New Vehicle",
+                "parameters": [{
+                    "name": "body",
+                    "in": "body",
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "brand": {
+                                "example": "any"
+                            },
+                            "model": {
+                                "example": "any"
+                            },
+                            "horse_power": {
+                                "example": "any"
+                            },
+                            "fuel_type": {
+                                "example": "any"
+                            },
+                            "category": {
+                                "example": "any"
+                            },
+                            "transmission": {
+                                "example": "any"
+                            },
+                            "number_passenger": {
+                                "example": "any"
+                            }
+                        }
+                    }
+                }],
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/vehicle/{id}": {
+            "get": {
+                "tag": ["Vehicle"],
+                "description": "Get a Vehicle by Id",
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "type": "string"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "put": {
+                "tag": ["Vehicle"],
+                "description": "Update a Vehicle by Id",
+                "parameters": [{
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "brand": {
+                                    "example": "any"
+                                },
+                                "model": {
+                                    "example": "any"
+                                },
+                                "horse_power": {
+                                    "example": "any"
+                                },
+                                "fuel_type": {
+                                    "example": "any"
+                                },
+                                "category": {
+                                    "example": "any"
+                                },
+                                "transmission": {
+                                    "example": "any"
+                                },
+                                "number_passenger": {
+                                    "example": "any"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "delete": {
+                "tag": ["Vehicle"],
+                "description": "Delete a Vehicle by Id",
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "type": "string"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/maintenance/": {
+            "get": {
+                "tag": ["Vehicle Maintenance"],
+                "description": "GEt all Vehicle Maintenances",
+                "produces": ["application/json"],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "post": {
+                "tag": ["Vehicle Maintenance"],
+                "description": "Create a New Vehicle Maintenance",
+                "parameters": [{
+                    "name": "body",
+                    "in": "body",
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "vehicle": {
+                                "example": "any"
+                            },
+                            "date": {
+                                "example": "any"
+                            },
+                            "mileage": {
+                                "example": "any"
+                            },
+                            "lubrication": {
+                                "example": "any"
+                            },
+                            "brakes": {
+                                "example": "any"
+                            },
+                            "tires": {
+                                "example": "any"
+                            },
+                            "suspension_system": {
+                                "example": "any"
+                            },
+                            "disponibility": {
+                                "example": "any"
+                            }
+                        }
+                    }
+                }],
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/maintenance/{id}": {
+            "get": {
+                "tag": ["Vehicle Maintenance"],
+                "description": "Get a Vehicle Maintenance by Id",
+                "produces": ["application/json"],
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "type": "string"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "put": {
+                "tag": ["Vehicle Maintenance"],
+                "description": "Update a Vehicle Maintanance by Id",
+                "parameters": [{
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "vehicle": {
+                                    "example": "any"
+                                },
+                                "date": {
+                                    "example": "any"
+                                },
+                                "mileage": {
+                                    "example": "any"
+                                },
+                                "lubrication": {
+                                    "example": "any"
+                                },
+                                "brakes": {
+                                    "example": "any"
+                                },
+                                "tires": {
+                                    "example": "any"
+                                },
+                                "suspension_system": {
+                                    "example": "any"
+                                },
+                                "disponibility": {
+                                    "example": "any"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "delete": {
+                "tag": ["Vehicle Maintenance"],
+                "description": "Delete a Vehicle Maintenance by Id",
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "type": "string"
+                }],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/api-docs/": {
+            "get": {
+                "tag": ["Default"],
+                "description": "",
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                }
+            }
         }
-      },
-      "delete": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/api-docs/": {
-      "get": {
-        "description": "",
-        "responses": {
-          "default": {
-            "description": ""
-          }
-        }
-      }
     }
-  }
 }
