@@ -35,7 +35,7 @@ const getStoreById = async (req,res,next)=>{
    
 
 if(getStoreArray.length == 0){
-        return res.send(`Store with id${storeId} not found`)
+        return res.send(`Store with id ${storeId} not found`)
     }
 
 
@@ -49,15 +49,16 @@ catch(error){
 }
 const putStore = async (req,res,next)=>{
     try{
+    const newStore = req.body;
     const storeId = new ObjectId(req.params.id);
-    const getStoreArray =  await mongodb.getDb()
+    const getStore =  await mongodb.getDb()
     .db('carRental')
     .collection('stores')
-    .find({_id: storeId}).toArray();
+    .replaceOne({ _id: storeId}, newStore);
    
 
-if(getStoreArray.length == 0){
-    return res.send (`Store with id${planetId} not found`)
+if(getStore.matchedCount == 0){
+    return res.send (`Store with id ${storeId} not found`)
     }
     return res.send(`Store with id ${storeId} has been updated`);
 }
