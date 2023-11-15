@@ -18,9 +18,41 @@
       },
       "post": {
         "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "manager_name": {
+                  "example": "any"
+                },
+                "phone_number": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "address": {
+                  "example": "any"
+                },
+                "office_hours": {
+                  "example": "any"
+                },
+                "map": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
           }
         }
       }
@@ -50,11 +82,41 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "manager_name": {
+                  "example": "any"
+                },
+                "phone_number": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "address": {
+                  "example": "any"
+                },
+                "office_hours": {
+                  "example": "any"
+                },
+                "map": {
+                  "example": "any"
+                }
+              }
+            }
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
           }
         }
       },
@@ -541,6 +603,16 @@
           },
           "500": {
             "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api-docs/": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
           }
         }
       }
