@@ -2,11 +2,13 @@
     "swagger": "2.0",
     "info": {
         "title": "Renatal Cars",
-        "description": "his API is designed to manage and organize data within five key collections: Customers, Vehicles, Vehicle Maintenance,Employees and Stores ",
+        "description": "This API is designed to manage and organize data within five key collections: Customers, Vehicles, Vehicle Maintenance,Employees and Stores ",
         "version": "1.0.0"
     },
+    "host": "localhost:7070",
+    "basepath": "/",
     "schemes": ["http"],
-    "tag": [{
+    "tags": [{
             "name": "Stores",
             "descrition": "Operation about Stores."
         },
@@ -29,7 +31,7 @@
     "paths": {
         "/stores/": {
             "get": {
-                "tag": ["Stores"],
+                "tags": ["Stores"],
                 "description": "Get all the Stores",
                 "responses": {
                     "200": {
@@ -38,7 +40,7 @@
                 }
             },
             "post": {
-                "tag": ["Stores"],
+                "tags": ["Stores"],
                 "description": "Create a New Store",
                 "parameters": [{
                     "name": "body",
@@ -79,7 +81,7 @@
         },
         "/stores/{id}": {
             "get": {
-                "tag": ["Stores"],
+                "tags": ["Stores"],
                 "description": "Get a Store by Id",
                 "parameters": [{
                     "name": "id",
@@ -94,7 +96,7 @@
                 }
             },
             "put": {
-                "tag": ["Stores"],
+                "tags": ["Stores"],
                 "description": "Update a Store by Id",
                 "parameters": [{
                         "name": "id",
@@ -140,7 +142,7 @@
                 }
             },
             "delete": {
-                "tag": ["Stores"],
+                "tags": ["Stores"],
                 "description": "Delete a Store by Id",
                 "parameters": [{
                     "name": "id",
@@ -157,7 +159,7 @@
         },
         "/employee/": {
             "get": {
-                "tag": ["Employee"],
+                "tags": ["Employee"],
                 "description": "Get all Employees",
                 "produces": ["application/json"],
                 "responses": {
@@ -173,7 +175,7 @@
                 }
             },
             "post": {
-                "tag": ["Employee"],
+                "tags": ["Employee"],
                 "description": "Create a New Employee",
                 "produces": ["application/json"],
                 "parameters": [{
@@ -221,7 +223,7 @@
         },
         "/employee/{id}": {
             "get": {
-                "tag": ["Employee"],
+                "tags": ["Employee"],
                 "description": "Get an Employee by Id",
                 "produces": ["application/json"],
                 "parameters": [{
@@ -243,7 +245,7 @@
                 }
             },
             "put": {
-                "tag": ["Employee"],
+                "tags": ["Employee"],
                 "description": "Update an Employee by Id",
                 "parameters": [{
                         "name": "id",
@@ -292,7 +294,7 @@
                 }
             },
             "delete": {
-                "tag": ["Employee"],
+                "tags": ["Employee"],
                 "description": "Delete an Employee by Id",
                 "parameters": [{
                     "name": "id",
@@ -312,7 +314,7 @@
         },
         "/vehicle/": {
             "get": {
-                "tag": ["Vehicle"],
+                "tags": ["Vehicle"],
                 "description": "Get all Vehicles",
                 "responses": {
                     "200": {
@@ -324,7 +326,7 @@
                 }
             },
             "post": {
-                "tag": ["Vehicle"],
+                "tags": ["Vehicle"],
                 "description": "Create a New Vehicle",
                 "parameters": [{
                     "name": "body",
@@ -368,7 +370,7 @@
         },
         "/vehicle/{id}": {
             "get": {
-                "tag": ["Vehicle"],
+                "tags": ["Vehicle"],
                 "description": "Get a Vehicle by Id",
                 "parameters": [{
                     "name": "id",
@@ -389,7 +391,7 @@
                 }
             },
             "put": {
-                "tag": ["Vehicle"],
+                "tags": ["Vehicle"],
                 "description": "Update a Vehicle by Id",
                 "parameters": [{
                         "name": "id",
@@ -441,7 +443,7 @@
                 }
             },
             "delete": {
-                "tag": ["Vehicle"],
+                "tags": ["Vehicle"],
                 "description": "Delete a Vehicle by Id",
                 "parameters": [{
                     "name": "id",
@@ -464,7 +466,7 @@
         },
         "/maintenance/": {
             "get": {
-                "tag": ["Vehicle Maintenance"],
+                "tags": ["Vehicle Maintenance"],
                 "description": "GEt all Vehicle Maintenances",
                 "produces": ["application/json"],
                 "responses": {
@@ -477,7 +479,7 @@
                 }
             },
             "post": {
-                "tag": ["Vehicle Maintenance"],
+                "tags": ["Vehicle Maintenance"],
                 "description": "Create a New Vehicle Maintenance",
                 "parameters": [{
                     "name": "body",
@@ -524,7 +526,7 @@
         },
         "/maintenance/{id}": {
             "get": {
-                "tag": ["Vehicle Maintenance"],
+                "tags": ["Vehicle Maintenance"],
                 "description": "Get a Vehicle Maintenance by Id",
                 "produces": ["application/json"],
                 "parameters": [{
@@ -546,7 +548,7 @@
                 }
             },
             "put": {
-                "tag": ["Vehicle Maintenance"],
+                "tags": ["Vehicle Maintenance"],
                 "description": "Update a Vehicle Maintanance by Id",
                 "parameters": [{
                         "name": "id",
@@ -601,7 +603,7 @@
                 }
             },
             "delete": {
-                "tag": ["Vehicle Maintenance"],
+                "tags": ["Vehicle Maintenance"],
                 "description": "Delete a Vehicle Maintenance by Id",
                 "parameters": [{
                     "name": "id",
@@ -621,7 +623,7 @@
         },
         "/api-docs/": {
             "get": {
-                "tag": ["Default"],
+                "tags": ["Default"],
                 "description": "",
                 "responses": {
                     "default": {
