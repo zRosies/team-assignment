@@ -5,9 +5,9 @@
     "description": "This API is designed to manage and organize data within five key collections: Customers, Vehicles, Vehicle Maintenance,Employees and Stores ",
     "version": "1.0.0"
   },
-  "host": "https://carrental-ee09.onrender.com",
+  "host": "carrental-ee09.onrender.com",
   "basepath": "/",
-  "schemes": ["http"],
+  "schemes": ["http", "https"],
   "tags": [
     {
       "name": "Stores",
