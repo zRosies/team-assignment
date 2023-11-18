@@ -27,9 +27,12 @@
     "express-validator": "^7.0.1",
     "mongodb": "^6.1.0",
     "node": "^20.7.0",
+    "swagger": "^0.7.5",
     "swagger-autogen": "^2.23.7",
+    "swagger-ui": "^5.10.0",
     "swagger-ui-express": "^5.0.0",
     "ts-node": "^10.9.1",
+    "validator": "^13.11.0",
     "validatorjs": "^3.22.1"
   },
   "devDependencies": {
