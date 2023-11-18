@@ -1,5 +1,4 @@
 const mongodb = require("../connection/db.js");
-
 const ObjectId = require("mongodb").ObjectId;
 
 const getVehicle = async (req, res) => {

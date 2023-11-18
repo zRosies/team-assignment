@@ -156,5 +156,4 @@ module.exports = {
     createVehicleMaintenance,
     updateMaintenance,
     deleteMaintenance
-
 };

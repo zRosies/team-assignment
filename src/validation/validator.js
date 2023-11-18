@@ -20,6 +20,29 @@ const validateEmployee = () => {
   ];
 };
 
+const validateStore = () => {
+  return [
+    validator.check("address", "Address is required")
+    .not()
+    .isEmpty(),
+    validator
+    .check("email", "Email is required")
+    .isEmail(),
+    validator
+    .check("manager_name", "Manager Name  is required")
+    .not()
+    .isEmpty(),
+    validator
+    .check("phone_number", "Phone number is required and must be a number")
+    .isNumeric(),
+    validator
+    .check("office_hours", "Office Hours is required")
+    .not()
+    .isEmpty(),
+  
+  ]
+}
+
 // --------------- Here you just put the validate function beside your rule above in the route you want to validate -------------
 
 const validate = (req, res, next) => {
@@ -38,4 +61,4 @@ const validate = (req, res, next) => {
   });
 };
 
-module.exports = { validate, validateEmployee };
+module.exports = { validate, validateEmployee , validateStore};
