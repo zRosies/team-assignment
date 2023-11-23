@@ -13,6 +13,8 @@ content-type: application/json
     "office_hours": "9am-9pm"
    
 }
+
+
 ###
 POST http://localhost:7070/stores HTTP/1.1
 content-type: application/json
@@ -28,4 +30,5 @@ content-type: application/json
 
 ###
 DELETE http://localhost:7070/stores/6552327c39472137625b9d2c HTTP/1.1
+
 

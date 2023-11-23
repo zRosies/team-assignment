@@ -2,18 +2,38 @@
   "swagger": "2.0",
   "info": {
     "title": "Renatal Cars",
-    "description": "his API is designed to manage and organize data within five key collections: Customers, Vehicles, Vehicle Maintenance,Employees and Stores ",
+    "description": "This API is designed to manage and organize data within five key collections: Customers, Vehicles, Vehicle Maintenance,Employees and Stores ",
     "version": "1.0.0"
   },
-  "host": "http://localhost:7070",
-  "basePath": "/",
-  "schemes": [
-    "http"
+  "host": "carrental-ee09.onrender.com",
+  "basepath": "/",
+  "schemes": ["http", "https"],
+  "tags": [
+    {
+      "name": "Stores",
+      "descrition": "Operation about Stores."
+    },
+    {
+      "name": "Employee",
+      "description": "Operation about Employee."
+    },
+    {
+      "name": "Vehicle",
+      "description": "Operation about Vehicle."
+    },
+    {
+      "name": "Vehicle Maintenance",
+      "description": "Operation about Vehicle Maintenance."
+    },
+    {
+      "name": "Default"
+    }
   ],
   "paths": {
     "/stores/": {
       "get": {
-        "description": "",
+        "tags": ["Stores"],
+        "description": "Get all the Stores",
         "responses": {
           "200": {
             "description": "OK"
@@ -21,17 +41,51 @@
         }
       },
       "post": {
-        "description": "",
+        "tags": ["Stores"],
+        "description": "Create a New Store",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "manager_name": {
+                  "example": "any"
+                },
+                "phone_number": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "address": {
+                  "example": "any"
+                },
+                "office_hours": {
+                  "example": "any"
+                },
+                "map": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
           }
         }
       }
     },
     "/stores/{id}": {
       "get": {
-        "description": "",
+        "tags": ["Stores"],
+        "description": "Get a Store by Id",
         "parameters": [
           {
             "name": "id",
@@ -47,23 +101,55 @@
         }
       },
       "put": {
-        "description": "",
+        "tags": ["Stores"],
+        "description": "Update a Store by Id",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "manager_name": {
+                  "example": "any"
+                },
+                "phone_number": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "address": {
+                  "example": "any"
+                },
+                "office_hours": {
+                  "example": "any"
+                },
+                "map": {
+                  "example": "any"
+                }
+              }
+            }
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
           }
         }
       },
       "delete": {
-        "description": "",
+        "tags": ["Stores"],
+        "description": "Delete a Store by Id",
         "parameters": [
           {
             "name": "id",
@@ -81,10 +167,9 @@
     },
     "/employee/": {
       "get": {
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "tags": ["Employee"],
+        "description": "Get all Employees",
+        "produces": ["application/json"],
         "responses": {
           "200": {
             "description": "OK"
@@ -98,10 +183,9 @@
         }
       },
       "post": {
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "tags": ["Employee"],
+        "description": "Create a New Employee",
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "body",
@@ -149,10 +233,9 @@
     },
     "/employee/{id}": {
       "get": {
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "tags": ["Employee"],
+        "description": "Get an Employee by Id",
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "id",
@@ -173,27 +256,9 @@
           }
         }
       },
-      "delete": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
       "put": {
-        "description": "",
+        "tags": ["Employee"],
+        "description": "Update an Employee by Id",
         "parameters": [
           {
             "name": "id",
@@ -240,11 +305,32 @@
             "description": "Internal Server Error"
           }
         }
+      },
+      "delete": {
+        "tags": ["Employee"],
+        "description": "Delete an Employee by Id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
       }
     },
     "/vehicle/": {
       "get": {
-        "description": "",
+        "tags": ["Vehicle"],
+        "description": "Get all Vehicles",
         "responses": {
           "200": {
             "description": "OK"
@@ -255,7 +341,8 @@
         }
       },
       "post": {
-        "description": "",
+        "tags": ["Vehicle"],
+        "description": "Create a New Vehicle",
         "parameters": [
           {
             "name": "body",
@@ -300,7 +387,8 @@
     },
     "/vehicle/{id}": {
       "get": {
-        "description": "",
+        "tags": ["Vehicle"],
+        "description": "Get a Vehicle by Id",
         "parameters": [
           {
             "name": "id",
@@ -322,7 +410,8 @@
         }
       },
       "put": {
-        "description": "",
+        "tags": ["Vehicle"],
+        "description": "Update a Vehicle by Id",
         "parameters": [
           {
             "name": "id",
@@ -374,7 +463,8 @@
         }
       },
       "delete": {
-        "description": "",
+        "tags": ["Vehicle"],
+        "description": "Delete a Vehicle by Id",
         "parameters": [
           {
             "name": "id",
@@ -398,10 +488,9 @@
     },
     "/maintenance/": {
       "get": {
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "tags": ["Vehicle Maintenance"],
+        "description": "GEt all Vehicle Maintenances",
+        "produces": ["application/json"],
         "responses": {
           "200": {
             "description": "OK"
@@ -412,7 +501,8 @@
         }
       },
       "post": {
-        "description": "",
+        "tags": ["Vehicle Maintenance"],
+        "description": "Create a New Vehicle Maintenance",
         "parameters": [
           {
             "name": "body",
@@ -460,10 +550,9 @@
     },
     "/maintenance/{id}": {
       "get": {
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "tags": ["Vehicle Maintenance"],
+        "description": "Get a Vehicle Maintenance by Id",
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "id",
@@ -485,7 +574,8 @@
         }
       },
       "put": {
-        "description": "",
+        "tags": ["Vehicle Maintenance"],
+        "description": "Update a Vehicle Maintanance by Id",
         "parameters": [
           {
             "name": "id",
@@ -540,7 +630,8 @@
         }
       },
       "delete": {
-        "description": "",
+        "tags": ["Vehicle Maintenance"],
+        "description": "Delete a Vehicle Maintenance by Id",
         "parameters": [
           {
             "name": "id",
@@ -555,6 +646,17 @@
           },
           "500": {
             "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api-docs/": {
+      "get": {
+        "tags": ["Default"],
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
           }
         }
       }
