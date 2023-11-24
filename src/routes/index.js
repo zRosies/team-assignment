@@ -8,12 +8,14 @@ const employee = require("./employees");
 const vehicle = require("./vehicle");
 const oauth = require("../oauth/oauth");
 const vehicleMaintenance = require("./vehicleMaintenance");
+const user = require("./users")
 
 router.use("/stores", storesRoute);
 router.use("/employee", employee);
 router.use("/vehicle", vehicle);
 router.use("/maintenance", vehicleMaintenance);
 router.use("/api-docs", swagger);
+router.use("/user", user);
 router.use("/", oauth);
 router.get("/", (req, res) => {
   // Using path.join to create an absolute path to the index.html file
@@ -30,5 +32,6 @@ router.get("/denied", (req, res) => {
     console.log("aaa");
   }, 3000);
 });
+
 
 module.exports = router;

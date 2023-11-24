@@ -1,11 +1,11 @@
 const { ObjectId } = require("mongodb");
 const mongodb = require("../connection/db");
 
-const getAllEmployees = async(req, res) => {
+const getAllUsers = async(req, res) => {
     const result = await mongodb
         .getDb()
         .db("carRental")
-        .collection("employee")
+        .collection("users")
         .find()
         .toArray();
 
@@ -23,11 +23,10 @@ const getAllEmployees = async(req, res) => {
     }
 };
 
-const createEmployee = async(req, res) => {
-    const employeeInfo = {
+const createUser = async(req, res) => {
+    const userInfo = {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
-        admission_date: req.body.admission_date,
         phone: req.body.phone,
         email: req.body.email,
         address: req.body.address,
@@ -37,8 +36,8 @@ const createEmployee = async(req, res) => {
         const result = await mongodb
             .getDb()
             .db("carRental")
-            .collection("employee")
-            .insertOne(employeeInfo);
+            .collection("users")
+            .insertOne(userInfo);
 
         if (result.acknowledged) {
             res.setHeader("Content-Type", "application/json");
@@ -53,12 +52,12 @@ const createEmployee = async(req, res) => {
     }
 };
 
-const getEmployeeById = async(req, res) => {
+const getUserById = async(req, res) => {
     const userId = new ObjectId(req.params.id);
     const result = await mongodb
         .getDb()
         .db("carRental")
-        .collection("employee")
+        .collection("users")
         .findOne({ _id: userId });
 
     try {
@@ -74,23 +73,23 @@ const getEmployeeById = async(req, res) => {
     }
 };
 
-const deleteEmployee = async(req, res, next) => {
+const deleteUser = async(req, res, next) => {
     const employeeId = new ObjectId(req.params.id);
     const response = await mongodb
         .getDb()
         .db("carRental")
-        .collection("employee")
+        .collection("users")
         .deleteOne({ _id: employeeId });
     console.log(response);
 
     try {
         if (response.deletedCount > 0) {
-            res.status(200).json(`${employeeId} deleted successfully`);
+            res.status(200).json(`${employeeId} was deleted successfully`);
         } else {
             res
                 .status(500)
                 .json(
-                    response.error || "Some error occurred while deleting the contact.",
+                    response.error || "An error occurred while deleting the contact.",
                 );
         }
     } catch (error) {
@@ -99,13 +98,12 @@ const deleteEmployee = async(req, res, next) => {
     }
 };
 
-const updateEmployee = async(req, res, next) => {
-    const employeeId = new ObjectId(req.params.id);
+const updateUser = async(req, res, next) => {
+    const userId = new ObjectId(req.params.id);
 
-    const newEmployee = {
+    const newUser = {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
-        admission_date: req.body.admission_date,
         phone: req.body.phone,
         email: req.body.email,
         address: req.body.address,
@@ -115,16 +113,16 @@ const updateEmployee = async(req, res, next) => {
         const result = await mongodb
             .getDb()
             .db("carRental")
-            .collection("employee")
-            .replaceOne({ _id: employeeId }, newEmployee);
+            .collection("users")
+            .replaceOne({ _id: userId }, newUser);
 
         if (result.modifiedCount > 0) {
-            res.status(204).json(`${employeeId} updated successfully`);
+            res.status(204).json(`${userId} was updated successfully`);
         } else {
             res
                 .status(500)
                 .json(
-                    response.error || "Some error occurred while updating the contact.",
+                    response.error || "An error occurred while updating the contact.",
                 );
         }
     } catch (error) {
@@ -134,9 +132,9 @@ const updateEmployee = async(req, res, next) => {
 };
 
 module.exports = {
-    getAllEmployees,
-    createEmployee,
-    getEmployeeById,
-    deleteEmployee,
-    updateEmployee,
+    getAllUsers,
+    createUser,
+    getUserById,
+    deleteUser,
+    updateUser,
 };
