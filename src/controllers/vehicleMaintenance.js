@@ -151,9 +151,9 @@ const deleteMaintenance = async (req, res) => {
 };
 
 module.exports = {
-  getAll,
-  getSingle,
-  createVehicleMaintenance,
-  updateMaintenance,
-  deleteMaintenance,
+    getAll,
+    getSingle,
+    createVehicleMaintenance,
+    updateMaintenance,
+    deleteMaintenance
 };
