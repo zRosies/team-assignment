@@ -1,11 +1,12 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Renatal Cars",
+    "title": "Rental Cars",
     "description": "This API is designed to manage and organize data within five key collections: Customers, Vehicles, Vehicle Maintenance,Employees and Stores ",
     "version": "1.0.0"
   },
-  "host": "carrental-ee09.onrender.com",
+
+  "host": "localhost:7070/",
   "basepath": "/",
   "schemes": ["http", "https"],
   "tags": [
