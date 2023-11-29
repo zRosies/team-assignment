@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const VMaintenanceController = require("../controllers/vehicleMaintenance");
+const validate = require("../validation/validator");
 
 router.get("/", VMaintenanceController.getAll);
 router.get("/:id", VMaintenanceController.getSingle);
