@@ -8,7 +8,7 @@ const employee = require("./employees");
 const vehicle = require("./vehicle");
 const oauth = require("../oauth/oauth");
 const vehicleMaintenance = require("./vehicleMaintenance");
-const user = require("./users")
+const user = require("./users");
 
 router.use("/stores", storesRoute);
 router.use("/employee", employee);
@@ -32,6 +32,5 @@ router.get("/denied", (req, res) => {
     console.log("aaa");
   }, 3000);
 });
-
 
 module.exports = router;
