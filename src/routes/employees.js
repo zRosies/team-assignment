@@ -11,7 +11,6 @@ route.post(
   authenticate,
   validator.validateEmployee(),
   validator.validate,
-
   employees.createEmployee,
 );
 route.put(
