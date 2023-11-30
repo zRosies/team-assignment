@@ -12,7 +12,7 @@ const redirect = (req, res) => {
 
 const callback = async (req, res, next) => {
   const { code } = req.query;
-  console.log(process.env.GITHUB_SECRET);
+
   const body = {
     client_id: process.env.GITHUB_CLIENT_ID,
     client_secret: process.env.GITHUB_SECRET,

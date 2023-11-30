@@ -27,12 +27,4 @@ router.get("/account-google", (req, res) => {
   res.sendFile(path.join(__dirname, "../public/logged-google.html"));
 });
 
-router.get("/denied", (req, res) => {
-  res.sendFile(path.join(__dirname, "../public/denied.html"));
-
-  setTimeout(() => {
-    console.log("aaa");
-  }, 3000);
-});
-
 module.exports = router;
