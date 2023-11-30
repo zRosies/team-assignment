@@ -9,6 +9,7 @@ const app = express();
 const router = require("./src/routes/index");
 const session = require("express-session");
 const dotenv = require("dotenv");
+const path = require("path");
 dotenv.config();
 
 require("./src/configuration/passport")(passport);
@@ -36,7 +37,8 @@ app
   .use(passport.initialize())
   .use(passport.authenticate("session"))
   .use("/auth", require("./src/routes/auth"))
-  .use("/", router);
+  .use("/", router)
+  .use(express.static(path.join(__dirname, "./src/public")));
 
 mongodb.initDb((err) => {
   if (err) {
