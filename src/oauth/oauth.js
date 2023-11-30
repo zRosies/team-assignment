@@ -54,6 +54,6 @@ const logout = (req, res) => {
 
 oauth.get("/oauth", redirect);
 oauth.get("/oauth-callback", callback);
-oauth.get("/logout", logout);
+oauth.get("/git-logout", logout);
 
 module.exports = oauth;
