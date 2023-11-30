@@ -27,6 +27,6 @@ router.put(
   controllerVehicle.updateVehicleById,
 );
 
-router.delete("/:id", controllerVehicle.deleteVehicleById);
+router.delete("/:id", authenticate, controllerVehicle.deleteVehicleById);
 
 module.exports = router;
