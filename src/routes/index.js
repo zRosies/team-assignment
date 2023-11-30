@@ -21,10 +21,21 @@ router.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../public/index.html"));
 });
 router.get("/account", (req, res) => {
+  const cookies = cookie.parse(req.headers?.cookie || "");
+  const githubToken = cookies.git_token || false;
+  if (githubToken) {
+    res.sendFile(path.join(__dirname, "../public/logged-google.html"));
+  } else {
+    res.status(401).json({ message: "You have no access to this page." });
+  }
   res.sendFile(path.join(__dirname, "../public/logged-git.html"));
 });
 router.get("/account-google", (req, res) => {
-  res.sendFile(path.join(__dirname, "../public/logged-google.html"));
+  if (req.isAuthenticated()) {
+    res.sendFile(path.join(__dirname, "../public/logged-google.html"));
+  } else {
+    res.status(401).json({ message: "You have no access to this page." });
+  }
 });
 
 module.exports = router;

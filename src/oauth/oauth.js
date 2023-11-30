@@ -5,9 +5,15 @@ const cookie = require("cookie");
 const oauth = express.Router();
 
 const redirect = (req, res) => {
-  res.redirect(
-    `https://github.com/login/oauth/authorize?client_id=${process.env.GITHUB_CLIENT_ID}`,
-  );
+  const cookies = cookie.parse(req.headers?.cookie || "");
+  const githubToken = cookies.git_token || false;
+  if (githubToken) {
+    res.redirect("/account");
+  } else {
+    res.redirect(
+      `https://github.com/login/oauth/authorize?client_id=${process.env.GITHUB_CLIENT_ID}`,
+    );
+  }
 };
 
 const callback = async (req, res, next) => {
