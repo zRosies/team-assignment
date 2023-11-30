@@ -58,6 +58,18 @@ const validateStore = () => {
     ]
 }
 
+const validateVehicle = () => {
+    return [
+        validate.check("brand", "Brand is required").not().isEmpty(),
+        validate.check("model", "Model is required").not().isEmpty(),
+        validate.check("horse_power", "Horsepower is required").not().isEmpty(),
+        validate.check("fuel_type", "Fuel Type is required").not().isEmpty(),
+        validate.check("category", "Category is required").not().isEmpty(),
+        validate.check("transmission", "Transmission is required").not().isEmpty(),
+        validate.check("number_passenger", "The number of passenger is required").not().isEmpty(),
+    ];
+};
+
 // --------------- Here you just put the validate function beside your rule above in the route you want to validate -------------
 
 const validate = (req, res, next) => {
@@ -69,7 +81,8 @@ const validate = (req, res, next) => {
 
     errors.array().map((err) => {
         extractedErrors.push({
-            [err.msg]: err.msg });
+            [err.msg]: err.msg
+        });
     });
 
     return res.status(422).json({
@@ -77,4 +90,4 @@ const validate = (req, res, next) => {
     });
 };
 
-module.exports = { validate, validateEmployee, validateUser, validateStore };
+module.exports = { validate, validateEmployee, validateUser, validateStore, validateVehicle };
