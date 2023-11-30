@@ -30,10 +30,7 @@ app
       },
       resave: true,
       saveUninitialized: true,
-      store: MongoStore.create({
-        mongoUrl:
-          "mongodb+srv://FinalProject:carrental@cluster0.ctkais6.mongodb.net/?retryWrites=true&w=majority",
-      }),
+      store: MongoStore.create({ mongoUrl: process.env.URI }),
     }),
   )
   //Passport
