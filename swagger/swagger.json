@@ -1,29 +1,30 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Renatal Cars",
+    "title": "Rental Cars",
     "description": "This API is designed to manage and organize data within five key collections: Customers, Vehicles, Vehicle Maintenance,Employees and Stores ",
     "version": "1.0.0"
   },
-  "host": "carrental-ee09.onrender.com",
-  "basepath": "/",
-  "schemes": ["http", "https"],
   "tags": [
     {
       "name": "Stores",
-      "descrition": "Operation about Stores."
+      "descrition": "Operations about Stores."
     },
     {
       "name": "Employee",
-      "description": "Operation about Employee."
+      "description": "Operations about Employee."
     },
     {
       "name": "Vehicle",
-      "description": "Operation about Vehicle."
+      "description": "Operations about Vehicle."
     },
     {
       "name": "Vehicle Maintenance",
-      "description": "Operation about Vehicle Maintenance."
+      "description": "Operations about Vehicle Maintenance."
+    },
+    {
+      "name": "User",
+      "description": "Operations about User."
     },
     {
       "name": "Default"
@@ -489,7 +490,7 @@
     "/maintenance/": {
       "get": {
         "tags": ["Vehicle Maintenance"],
-        "description": "GEt all Vehicle Maintenances",
+        "description": "Get all Vehicle Maintenances",
         "produces": ["application/json"],
         "responses": {
           "200": {
@@ -632,6 +633,152 @@
       "delete": {
         "tags": ["Vehicle Maintenance"],
         "description": "Delete a Vehicle Maintenance by Id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/user/": {
+      "get": {
+        "tags": ["User"],
+        "description": "Get all Users",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "post": {
+        "tags": ["User"],
+        "description": "Create a New User",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "example": "any"
+                },
+                "lastName": {
+                  "example": "any"
+                },
+                "phone": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "address": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/user/{id}": {
+      "get": {
+        "tags": ["User"],
+        "description": "Get a User by Id",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": ["User"],
+        "description": "Update a User by Id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "example": "any"
+                },
+                "lastName": {
+                  "example": "any"
+                },
+                "phone": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "address": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["User"],
+        "description": "Delete a User by Id",
         "parameters": [
           {
             "name": "id",
