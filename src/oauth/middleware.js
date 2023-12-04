@@ -4,6 +4,7 @@ const authenticate = (req, res, next) => {
   // Check if the user is authenticated, e.g., by verifying the presence of an access token.
   const cookies = cookie.parse(req.headers?.cookie || "");
   const githubToken = cookies.git_token;
+  // ------------ fix this tomorrow;
 
   if (githubToken || req.isAuthenticated()) {
     // if (
