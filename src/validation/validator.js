@@ -60,7 +60,8 @@ const validateStore = () => {
 
 const validateVehicle = () => {
     return [
-        validate.check("brand", "Brand is required").not().isEmpty(),
+        validatecode.
+        .check("brand", "Brand is required").not().isEmpty(),
         validate.check("model", "Model is required").not().isEmpty(),
         validate.check("horse_power", "Horsepower is required").not().isEmpty(),
         validate.check("fuel_type", "Fuel Type is required").not().isEmpty(),
