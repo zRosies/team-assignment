@@ -110,7 +110,7 @@ const updateMaintenance = async (req, res) => {
       .db("carRental")
       .collection("vehicleMaintenances")
       .replaceOne({ _id: maintenanceId }, vehicleMaintenance);
-    console.log(response);
+
     if (response.modifiedCount > 0) {
       res.status(204).send();
     } else {
@@ -151,9 +151,9 @@ const deleteMaintenance = async (req, res) => {
 };
 
 module.exports = {
-    getAll,
-    getSingle,
-    createVehicleMaintenance,
-    updateMaintenance,
-    deleteMaintenance
+  getAll,
+  getSingle,
+  createVehicleMaintenance,
+  updateMaintenance,
+  deleteMaintenance,
 };
