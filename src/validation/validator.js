@@ -51,18 +51,6 @@ const validateStore = () => {
 };
 
 const validateVehicle = () => {
-<<<<<<< HEAD
-    return [
-        validatecode.
-        .check("brand", "Brand is required").not().isEmpty(),
-        validate.check("model", "Model is required").not().isEmpty(),
-        validate.check("horse_power", "Horsepower is required").not().isEmpty(),
-        validate.check("fuel_type", "Fuel Type is required").not().isEmpty(),
-        validate.check("category", "Category is required").not().isEmpty(),
-        validate.check("transmission", "Transmission is required").not().isEmpty(),
-        validate.check("number_passenger", "The number of passenger is required").not().isEmpty(),
-    ];
-=======
   return [
     validator.check("brand", "Brand is required").not().isEmpty(),
     validator.check("model", "Model is required").not().isEmpty(),
@@ -75,7 +63,6 @@ const validateVehicle = () => {
       .not()
       .isEmpty(),
   ];
->>>>>>> 93c9abcb3da2ed709ccf0ef7fa7c2b5d6aa830f9
 };
 
 // --------------- Here you just put the validate function beside your rule above in the route you want to validate -------------

@@ -19,6 +19,14 @@ router.use("/", oauth);
 
 //------defining views---------
 router.get("/", (req, res) => {
+  const cookies = cookie.parse(req.headers?.cookie || "");
+  const githubToken = cookies.git_token || false;
+  if (githubToken) {
+    res.sendFile(path.join(__dirname, "../public/logged-git.html"));
+  }
+  if (req.isAuthenticated()) {
+    res.sendFile(path.join(__dirname, "../public/logged-google.html"));
+  }
   res.sendFile(path.join(__dirname, "../public/index.html"));
 });
 router.get("/account", (req, res) => {
